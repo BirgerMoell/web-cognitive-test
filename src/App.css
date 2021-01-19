@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1050A8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Logo-container {
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 1%;
+  cursor: pointer;
+}
+
+.Logo-header {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #1050A8;
+  padding: 2%;
+}
+
+.AudioForm-container {
+  max-width: 700px;
+  font-size: 26px;
+  background-color: #333;
+  border-radius: 5%;
+  padding: 5%;
+}
+
+select {
+  padding: 5px;
+  border-radius: 1rem;
+  margin: 1rem;
 }
