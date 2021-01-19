@@ -64,7 +64,7 @@ function AudioText(props) {
       } else {
         setCounter(counter + 1)
       }
-    }, 1000);
+    }, 15000);
     return () => clearInterval(interval);
     }
   }, [counter, completed]);
