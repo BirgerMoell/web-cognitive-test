@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/web-cognitive-test/static/css/main.6a1465c8.chunk.css",
+    "main.js": "/web-cognitive-test/static/js/main.17ac0066.chunk.js",
+    "main.js.map": "/web-cognitive-test/static/js/main.17ac0066.chunk.js.map",
+    "runtime-main.js": "/web-cognitive-test/static/js/runtime-main.67fa7e38.js",
+    "runtime-main.js.map": "/web-cognitive-test/static/js/runtime-main.67fa7e38.js.map",
+    "static/css/2.56839ab5.chunk.css": "/web-cognitive-test/static/css/2.56839ab5.chunk.css",
+    "static/js/2.6f1ac368.chunk.js": "/web-cognitive-test/static/js/2.6f1ac368.chunk.js",
+    "static/js/2.6f1ac368.chunk.js.map": "/web-cognitive-test/static/js/2.6f1ac368.chunk.js.map",
+    "index.html": "/web-cognitive-test/index.html",
+    "static/css/2.56839ab5.chunk.css.map": "/web-cognitive-test/static/css/2.56839ab5.chunk.css.map",
+    "static/css/main.6a1465c8.chunk.css.map": "/web-cognitive-test/static/css/main.6a1465c8.chunk.css.map",
+    "static/js/2.6f1ac368.chunk.js.LICENSE.txt": "/web-cognitive-test/static/js/2.6f1ac368.chunk.js.LICENSE.txt",
+    "static/media/kthlogo.b07cd2db.png": "/web-cognitive-test/static/media/kthlogo.b07cd2db.png",
+    "static/media/microphone.fea0009f.svg": "/web-cognitive-test/static/media/microphone.fea0009f.svg",
+    "static/media/microphone~MMbrAzIj.svg": "/web-cognitive-test/static/media/microphone~MMbrAzIj.52a4fd8a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.67fa7e38.js",
+    "static/css/2.56839ab5.chunk.css",
+    "static/js/2.6f1ac368.chunk.js",
+    "static/css/main.6a1465c8.chunk.css",
+    "static/js/main.17ac0066.chunk.js"
+  ]
+}
