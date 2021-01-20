@@ -10,18 +10,21 @@ export function AudioForm(props) {
     const userMedia = useRef(null);
 
     const sendAnswersToServer = () => {
-        console.log("diagnosis", diagnosis)
-        console.log("cognition", cognition)
-        console.log("recorded is", props.recorded)
+        // console.log("diagnosis", diagnosis)
+        // console.log("cognition", cognition)
+        // console.log("recorded is", props.recorded)
         setAnswered(true)
         playAudio(props.recorded)
     }
 
     const playAudio = (stream) => {
+        console.log("stream is", stream)
         console.log("usermedia is", userMedia)
-        // userMedia.current.src = stream
-        // userMedia.current.focus()
-        // userMedia.current.play();
+        const audioFile = document.createElement('audio');
+        audioFile.src = "";
+        audioFile.srcObject = stream;
+        audioFile.play();
+        console.log("the audiofile is", audioFile)
     }
 
     return (
@@ -31,7 +34,7 @@ export function AudioForm(props) {
             <img src={logo} width="150px" alt="logo" />
 
             <p>Hör av dig till bmoell@kth.se om du har några frågor kring studien.</p>
-            <audio ref={userMedia} src={props.recorded} autoPlay id="user-media"></audio>
+            {/* <audio ref={userMedia} src={props.recorded} autoPlay id="user-media"></audio> */}
 
         </div> :
 

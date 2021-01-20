@@ -60,11 +60,11 @@ function AudioText(props) {
       if (counter >= props.phrases.length -1) {
         console.log("INSIDE COMPLETED")
         setCompleted(true)
-        props.stopMicrophone()
+        props.stopMicrophone(props.mediaRecorder)
       } else {
         setCounter(counter + 1)
       }
-    }, 15000);
+    }, 1000);
     return () => clearInterval(interval);
     }
   }, [counter, completed]);
@@ -84,11 +84,9 @@ function AudioText(props) {
   )
 }
 
-function App() {
+var mediaRecorder
 
-  const startRecording = () => {
-    alert("Recording the voice")
-  }
+function App() {
 
   const [open, setOpen] = React.useState(true);
   const [audio, setAudio] = React.useState(false);
@@ -114,10 +112,11 @@ function App() {
     }
   }
 
-  const stopMicrophone =() => {
+  const stopMicrophone = (mediaRecorder) => {
     audio.getTracks().forEach(track => track.stop());
-    setRecorded(audio)
-    setAudio(null)
+    console.log("STOPPING THE audio", audio)
+    mediaRecorder.stop()
+    setAudio(audio)
   }
 
   const getMicrophone = async () => {
@@ -125,8 +124,21 @@ function App() {
       audio: true,
       video: false
     });
+    mediaRecorder = new MediaRecorder(audio);
+    mediaRecorder.start()
+    mediaRecorder.ondataavailable = function(e) {
+      console.log("the mediarecorder data is called")
+      var url = URL.createObjectURL(e.data);
+      var preview = document.createElement('audio');
+      preview.controls = true;
+      preview.src = url;
+      document.body.appendChild(preview);
+      preview.play()
+  };
     setAudio(audio)
   }
+
+
 
   return (
     <React.Fragment>
@@ -135,11 +147,9 @@ function App() {
         <header className="App-header">
           <Header />
 
-          {!open && <AudioText recorded={recorded} stopMicrophone={stopMicrophone} phrases={phrases} />}
-
+          {!open && <AudioText mediaRecorder={mediaRecorder} readingTime={process.env.READING_TIME} recorded={audio} stopMicrophone={stopMicrophone} phrases={phrases} />}
           {/* <Microphone /> */}
-          
-
+    
         </header>
 
       </div>
