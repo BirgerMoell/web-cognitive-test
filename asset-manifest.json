@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/web-cognitive-test/static/css/main.6a1465c8.chunk.css",
-    "main.js": "/web-cognitive-test/static/js/main.0830f00f.chunk.js",
-    "main.js.map": "/web-cognitive-test/static/js/main.0830f00f.chunk.js.map",
+    "main.js": "/web-cognitive-test/static/js/main.d7fe5aad.chunk.js",
+    "main.js.map": "/web-cognitive-test/static/js/main.d7fe5aad.chunk.js.map",
     "runtime-main.js": "/web-cognitive-test/static/js/runtime-main.67fa7e38.js",
     "runtime-main.js.map": "/web-cognitive-test/static/js/runtime-main.67fa7e38.js.map",
     "static/css/2.56839ab5.chunk.css": "/web-cognitive-test/static/css/2.56839ab5.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.56839ab5.chunk.css",
     "static/js/2.6f1ac368.chunk.js",
     "static/css/main.6a1465c8.chunk.css",
-    "static/js/main.0830f00f.chunk.js"
+    "static/js/main.d7fe5aad.chunk.js"
   ]
 }
