@@ -65,3 +65,21 @@ select {
   border-radius: 1rem;
   margin: 1rem;
 }
+
+.Word-recall-header {
+  height: 50%;
+  background-color: #1050A8;
+}
+
+.circle {
+  border-radius: 100px;
+  background-color: lightgrey;
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+
+.inner-circle-text {
+  font-size: 18px;
+  text-align: center;
+}
