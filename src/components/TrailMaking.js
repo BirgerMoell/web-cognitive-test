@@ -1,5 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+import { CubeMaking } from "./CubeMaking";
+
+// order of tests
+// start with
 
 const StyledCircle = styled.div`
   border-radius: 100px;
@@ -102,16 +106,18 @@ let orderObj = [
   },
 ];
 
-export const TrailMaking = () => {
+export const TrailMaking = (props) => {
   const mouseMovement = [];
-  const [completed, setCompleted] = useState(false)
+  const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
     init();
   }, []);
 
   function init() {
-    canvas = document.getElementById("can");
+    canvas = completed
+      ? document.getElementById("cube")
+      : document.getElementById("can");
     ctx = canvas.getContext("2d");
     let w = canvas.width;
     let h = canvas.height;
@@ -147,12 +153,14 @@ export const TrailMaking = () => {
 
     let arr = Object.values(orderObj);
 
-    arr.map(
-      (item, i) => (
-        console.log("the item is", item),
-        drawCircle(ctx, item.value, item.x, item.y)
-      )
-    );
+    if (!completed) {
+      arr.map(
+        (item, i) => (
+          console.log("the item is", item),
+          drawCircle(ctx, item.value, item.x, item.y)
+        )
+      );
+    }
   }
 
   function drawCircle(ctx, item, left, top) {
@@ -175,27 +183,28 @@ export const TrailMaking = () => {
   }
 
   function collission_detection(x, y) {
-      console.log("inside collection detection with ", x)
+    console.log("inside collection detection with ", x);
     let arr = Object.values(orderObj);
-    let offset = 50
+    let offset = 50;
 
-    arr.map(
-      (item, i) => (item.x > x-offset && item.x < x+offset && item.y > y-offset && item.y < y+offset
-          ? mouseMovement.indexOf(item.value) === -1 ? mouseMovement.push(item.value) : console.log("This item already exists")
-          : null
-      )
+    arr.map((item, i) =>
+      item.x > x - offset &&
+      item.x < x + offset &&
+      item.y > y - offset &&
+      item.y < y + offset
+        ? mouseMovement.indexOf(item.value) === -1
+          ? mouseMovement.push(item.value)
+          : console.log("This item already exists")
+        : null
     );
 
-    console.log("the mouse movement is", mouseMovement)
+    console.log("the mouse movement is", mouseMovement);
 
-
-   if (mouseMovement.length === orderObj.length) {
-       console.log("we completed the task")
-       setCompleted(true)
-   }
-
+    if (mouseMovement.length === orderObj.length) {
+      console.log("we completed the task");
+      setCompleted(true);
+    }
   }
-
 
   function findxy(res, e) {
     if (res == "down") {
@@ -229,6 +238,10 @@ export const TrailMaking = () => {
     collission_detection(currX, currY);
   }
 
+  const moveOn = () => {
+    console.log("we are moving on");
+  };
+
   var canvas,
     ctx,
     flag = false,
@@ -241,22 +254,19 @@ export const TrailMaking = () => {
   var x = "black",
     y = 2;
 
-    if (!completed) {
-        return (
-            <div>
-              <h1>Dra ett streck från 1-A, A-2, 2-b osv.</h1>
-              <canvas id="can" width="1200" height="1200"></canvas>
-            </div>
-          );
-    } else {
-        return (
-            <div>
-                <p>We completed the task</p>
-            </div>
-        )
-    }
-
-
+  if (!completed) {
+    return (
+      <div style={{ padding: "29px", margin: "0px", background: "rgba(0,0,0,0.2)" }}>
+        <canvas id="can" width="1200" height="1200"></canvas>
+        <p style={{ "text-align": "center" }}>
+          Dra ett streck från 1-A, sedan vidare från A till 2 sedan 2 till b och
+          vidare.
+        </p>
+      </div>
+    );
+  } else {
+    return <CubeMaking recorded={props.recorded}></CubeMaking>;
+  }
 };
 
 const randomInt = (max) => {

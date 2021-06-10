@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, {  } from "react";
 
 let serverUrl = "http://127.0.0.1:8000";
 let mediaRecorder;

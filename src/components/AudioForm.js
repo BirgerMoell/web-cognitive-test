@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useRef } from "react";
-import logo from "./kthlogo.png";
+import logo from "../kthlogo.png";
 import Button from "./Button";
 
 let serverUrl = "http://127.0.0.1:8000";
@@ -117,6 +117,45 @@ export function AudioForm(props) {
       </select>
 
       <hr></hr>
+
+      <label for="cognition">
+        Vad är ditt kön
+      </label>
+      <select
+        onChange={(event) => setCognition(event.target.value)}
+        name="diagnos"
+        id="diagnos"
+      >
+        <option value={0}>Man</option>
+        <option value={1}>Kvinna</option>
+        <option value={2}>Icke-Binär</option>
+      </select>
+
+      <hr></hr>
+
+      <label for="cognition">
+        Vad är din ålder
+      </label>
+      <input></input>
+
+      <hr></hr>
+
+      <label for="cognition">
+        Vad är din utbildning-nivå
+            </label>
+      <select
+        onChange={(event) => setCognition(event.target.value)}
+        name="diagnos"
+        id="diagnos"
+      >
+        <option value={0}>Upp till 9 år (mindre än grundskola, årskurs 9)</option>
+        <option value={1}>Upp till 12 år (mindre än gymnasium, årskurs 12)</option>
+        <option value={2}>Efergymnasial utbildning, mindre än 3 år</option>
+        <option value={2}>Efergymnasial utbildning, längre än 3 år</option>
+      </select>
+
+      <hr></hr>
+
 
       {/* <div>Ange en mail-adress (frivilligt) om du vill bli kontaktad för en uppföljning</div>
        */}
